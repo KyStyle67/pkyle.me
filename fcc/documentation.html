@@ -68,6 +68,7 @@ User Story #15: My Technical Documentation page should use at least one media qu
             <p>A Port Forwarding rule will allow people from outside your private local-area network to connect to a specific service on your computer (in this case, a Minecraft server) over the internet, without exposing the rest of your private network to the outside world.</p>
             <p>Most household routers will have a web interface that you can connect to via the router's local IP address, which is the default gateway address. To configure a port forwarding rule, first we need to log in to the router web interface.</p>
             <h3>Finding the Default Gateway address</h3>
+            <p>In order to log into your router's administration panel, you will need to find it's address in your local network. This address is most commonly referred to as the Default Gateway address.</p>
             <h4>Windows Instructions</h4>
             <ol>
                 <li>Open the command prompt by holding down the <code class="inline-code">Windows</code> key and press <code class="inline-code">R</code> to bring up the Run dialogue</li>
@@ -81,6 +82,13 @@ User Story #15: My Technical Documentation page should use at least one media qu
                 <li>In your terminal, type in <code class="inline-code">netstat -nr | grep default</code> and hit <code class="inline-code">Enter</code></li>
                 <li>You should be able to see your default gateway address at the top of the output.</li>
             </ol>
+            <h3>Accessing the Router Administration panel</h3>
+            <p>Now that you have your default gateway address, we will use a web browser to navigate to the web interface that is hosted by your router.</p>
+            <ol>
+                <li>Open up a web browser, and in the navigation bar, enter in your default gateway address.</li>
+                <li>If the page requests for a login, the default username and password can be found in it's manual, or online. You could also try using the username <code class="inline-code">admin</code> with the password being either <code class="inline-code">password</code> or <code class="inline-code">admin</code>, as these are usually the default login credentials on most household routers.</li>
+            </ol>
+            <h3></h3>
         </section>
         <section class="main-section" id="">
             <header>
@@ -102,7 +110,7 @@ User Story #15: My Technical Documentation page should use at least one media qu
             <p> - Paste the default gateway address into your web browser url bar, and go.</p>
             <p> - If you need to login, the username is almost always admin or administrator, and the password is almost always just ‘password’, or nothing at all.</p>
             <p> - Once you are in, look for port forwarding options. This normally comes in under games and services, or firewall settings, if you can’t find it, look for advanced options, and then keep looking.</p>
-            <p> - Once you have found it, create a new port forwarding rule and call it Minecraft. Change the protocol to both UDP and TCP, and set the WAN and LAN port to 25565. Set the destination IP to your IPv4 address which you found earlier in cmd/terminal</p>
+            <p> - Once you have             <p> - If you need to login, the usernam            found it, create a new port forwarding rule and call it Minecraft. Change the protocol to both UDP and TCP, and set the WAN and LAN port to 25565. Set the destination IP to your IPv4 address which you found earlier in cmd/terminal</p>
             <p> - Save the port forwarding configuration and then exit the web browser.</p>
             <p> - Go into the server files and open the server.properties file in a text editor</p>
             <p> - Edit the line “server-ip” and make sure it equals your IPv4 address.</p>
