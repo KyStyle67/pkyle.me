@@ -10,12 +10,12 @@
          url('/fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg');
 }
 
-/* :root {
+:root {
     --background-color: #000;
     --text-color: #BBB;
-} */
+}
 
-:root {
+/* :root {
     --background-color: rgb(255, 255, 255);
     --text-color: rgb(0, 0, 0);
 } */

@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Technical Documentation | PKYLE</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Technical Documentation Webpages">
-        <meta name="keywords" content="Kyle Phillips, KyStyle, Documentation, FreeCodeCamp">
-        <meta name="author" content="Kyle Phillips">
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Technical Documentation">
-        <meta property="og:description" content="Technical Documentation Page">
-        <meta property="og:url" content="https://pkyle.me/fcc/documentation.html">
-        <meta property="og:image" content="/thumb.png" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-        <link rel="alternate icon" href="/favicon.ico">
-        <link rel="mask-icon" href="/favicon.svg" color="#222831">
-        <link rel="stylesheet" href="documentation.css">
-    </head>
+
+<head>
+    <title>Technical Documentation | PKYLE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Technical Documentation Webpages">
+    <meta name="keywords" content="Kyle Phillips, KyStyle, Documentation, FreeCodeCamp">
+    <meta name="author" content="Kyle Phillips">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Technical Documentation">
+    <meta property="og:description" content="Technical Documentation Page">
+    <meta property="og:url" content="https://pkyle.me/fcc/documentation.html">
+    <meta property="og:image" content="/thumb.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="mask-icon" href="/favicon.svg" color="#222831">
+    <link rel="stylesheet" href="documentation.css">
+</head>
+
 <body>
     <nav id="navbar">
         <header>
@@ -39,9 +41,15 @@
             <h3>Setting up the server files</h3>
             <p>Firstly, you will need the server files.</p>
             <ol>
-                <li><p>Go to the <a href="https://www.minecraft.net/en-us/download/server">Minecraft Server Downloads page</a> and download the <code class="inline-code">minecraft_server.&lt;version&gt;.jar</code> file</p></li>
-                <li><p>Create a new folder with a memorable name (e.g. <i>Minecraft Server 1.17</i>) and move the <code class="inline-code">minecraft_server.&lt;version&gt;.jar</code> file into your new folder.</p></li>
-                <li><p>Open the <code class="inline-code">minecraft_server.&lt;version&gt;.jar</code> file with Java by double clicking on it.</p></li>
+                <li>
+                    <p>Go to the <a href="https://www.minecraft.net/en-us/download/server">Minecraft Server Downloads page</a> and download the <code class="inline-code">minecraft_server.&lt;version&gt;.jar</code> file</p>
+                </li>
+                <li>
+                    <p>Create a new folder with a memorable name (e.g. <i>Minecraft Server 1.17</i>) and move the <code class="inline-code">minecraft_server.&lt;version&gt;.jar</code> file into your new folder.</p>
+                </li>
+                <li>
+                    <p>Open the <code class="inline-code">minecraft_server.&lt;version&gt;.jar</code> file with Java by double clicking on it.</p>
+                </li>
             </ol>
             <p>You should now see some new files appear in your server directory.</p>
         </section>
@@ -51,14 +59,60 @@
             </header>
             <p>To host a Minecraft Server, you must agree to the End User License Agreement (EULA)</p>
             <ol>
-                <li><p>Inside of your server directory, you should be able to see a <code class="inline-code">eula.txt</code> file. Double click on this file to open it.</p></li>
-                <li><p>Read the contents of the file. Most Importantly, read the <a href="https://account.mojang.com/documents/minecraft_eula">Minecraft EULA</a>.</p></li>
-                <li><p>Only if you agree to the EULA, change <code class="inline-code">eula=false</code> to <code class="inline-code">eula=true</code>.</p>
-                    <p>(If you don't agree to the EULA, stop here and check out <a href="https://www.minetest.net/">Minetest</a> instead!)</p></li>
-                <li><p>Save and close the <code class="inline-code">eula.txt</code> file.</p></li>
+                <li>
+                    <p>Inside of your server directory, you should be able to see a <code class="inline-code">eula.txt</code> file. Double click on this file to open it.</p>
+                </li>
+                <li>
+                    <p>Read the contents of the file. Most Importantly, read the <a href="https://account.mojang.com/documents/minecraft_eula">Minecraft EULA</a>.</p>
+                </li>
+                <li>
+                    <p>Only if you agree to the EULA, change <code class="inline-code">eula=false</code> to <code class="inline-code">eula=true</code>.</p>
+                    <p>(If you don't agree to the EULA, stop here and check out <a href="https://www.minetest.net/">Minetest</a> instead!)</p>
+                </li>
+                <li>
+                    <p>Save and close the <code class="inline-code">eula.txt</code> file.</p>
+                </li>
             </ol>
-            <h3 id="server-ipv4-address">Finding the local IPv4 Address of the Server Computer<h3>
-
+            <h3 id="server-ipv4-address">Finding the local IPv4 Address of the Server Computer</h3>
+            <p>Each device in your home network has it's own local IP (Internet Protocol) address. IP addresses are used to make sure that every network transmission is sent towards its intended device. We're going to need to find the IP address of the device that is hosting the Minecraft server in order to configure our home network so that this device is set up to send and recieve the Minecraft server transmissions.</p>
+            <h4>Windows Instructions</h4>
+            <ol>
+                <li>Open the command prompt by holding down the <code class="inline-code">Windows</code> key and press <code class="inline-code">R</code> to bring up the Run dialogue</li>
+                <li>Type <code class="inline-code">cmd</code> into the Run dialogue and hit <code class="inline-code">Enter</code></li>
+                <li>In the command prompt, type in <code class="inline-code">ipconfig</code> and hit <code class="inline-code">Enter</code></li>
+                <li>In the console you should be able to see an overview of the Windows IP Configuration. Look for the line starting with <code class="inline-code">IPv4 Address</code> to find your IPv4 address. Make sure to make a note of this, because you will need to know this later.</li>
+            </ol>
+            <h4>macOS Instructions</h4>
+            <ol>
+                <li>Open up the Terminal application from the Launchpad on macOS, or a terminal emulator which you prefer.</li>
+                <li>In your terminal, type in <code class="inline-code">ipconfig getifaddr en0</code> and hit <code class="inline-code">Enter</code></li>
+                <li>Your device's IP address should be printed in the output. Make sure to make a note of this, because you will need to know this later.</li>
+            </ol>
+            <h3 id="finding_the_physical_mac_address_of_the_server_computer">Finding the Physical (MAC) Address of the Server Computer</h3>
+            <p>Each device has it's own Media Access Control (MAC) address that operates as a unique device identifier in a network. You will need to know your device's MAC Address (aka. Physical Address) to set a Static DHCP Lease, which will be explained in a later part of this guide.</p>
+            <h4>Windows Instructions</h4>
+            <ol>
+                <li>Open the command prompt by holding down the <code class="inline-code">Windows</code> key and press <code class="inline-code">R</code> to bring up the Run dialogue</li>
+                <li>Type <code class="inline-code">cmd</code> into the Run dialogue and hit <code class="inline-code">Enter</code></li>
+                <li>In the command prompt, type in <code class="inline-code">ipconfig</code> and hit <code class="inline-code">Enter</code></li>
+                <li>In the console you should be able to see an overview of the Windows IP Configuration. Look for the line starting with <code class="inline-code">Physical Address</code> to find your MAC address. Make sure to make a note of this, because you will need to know this later.</li>
+            </ol>
+            <h4>macOS Instructions</h4>
+            <ol>
+                <li>Open up the Terminal application from the Launchpad on macOS, or a terminal emulator which you prefer.</li>
+                <li>In your terminal, type in <code class="inline-code">networksetup -listallhardwareports</code> and hit <code class="inline-code">Enter</code></li>
+                <li><h5>If you are connected via Wi-Fi:</h5>
+                <ul>
+                    <li>You will find the MAC Address below the line which says <code class="inline-code">Hardware Port: Wi-Fi</code></li>
+                    <li>Find the address printed after the <code class="inline-code">Ethernet Address:</code> text. This is your device's MAC Address. Make sure to make a note of this, because you will need to know this later.</li>
+                </ul>
+                <h5>If you are connected via Ethernet</h5>
+                <ol>
+                    <li>You will find the MAC Address below the line which says <code class="inline-code">Hardware Port: Ethernet</code></li>
+                    <li>Find the address printed after the <code class="inline-code">Ethernet Address:</code> text. This is your device's MAC Address. Make sure to make a note of this, because you will need to know this later.</li>
+                </ol>
+            </li>
+            </ol>
         </section>
         <section class="main-section" id="router_configuration">
             <header>
@@ -66,7 +120,7 @@
             </header>
             <p>In order to allow people from outside your local network to connect to your Minecraft Server, you will need to configure a port forwarding rule in your router's administration dashboard. This step can vary a lot depending on which router you are using.</p>
             <p>A Port Forwarding rule will allow people from outside your private local-area network to connect to a specific service on your computer (in this case, a Minecraft server) over the internet, without exposing the rest of your private network to the outside world.</p>
-            <p>Most household routers will have a web interface that you can connect to via the router's local IP address, which is the default gateway address. To configure a port forwarding rule, first we need to log in to the router web interface.</p>
+            <p>Most household routers will have a web interface that you can connect to via the router's local IP address, which is also known as the default gateway address. To configure a port forwarding rule, first we need to log in to the router web interface.</p>
             <h3>Finding the Default Gateway address</h3>
             <p>In order to log into your router's administration panel, you will need to find it's address in your local network. This address is most commonly referred to as the Default Gateway address.</p>
             <h4>Windows Instructions</h4>
@@ -74,30 +128,47 @@
                 <li>Open the command prompt by holding down the <code class="inline-code">Windows</code> key and press <code class="inline-code">R</code> to bring up the Run dialogue</li>
                 <li>Type <code class="inline-code">cmd</code> into the Run dialogue and hit <code class="inline-code">Enter</code></li>
                 <li>In the command prompt, type in <code class="inline-code">ipconfig</code> and hit <code class="inline-code">Enter</code></li>
-                <li>In the console you should be able to see an overview of the Windows IP Configuration. Look for the row with the Default Gateway entry to find your Default Gateway address.</li>
+                <li>In the console you should be able to see an overview of the Windows IP Configuration. Look for the line starting with <code class="inline-code">Default Gateway</code> to find your Default Gateway address. Make sure to make a note of this, because you will need this for the following steps.</li>
             </ol>
-            <h4>MacOS Instructions</h4>
+            <h4>macOS Instructions</h4>
             <ol>
-                <li>Open up the Terminal application from the Launchpad on MacOS, or a terminal emulator which you prefer.</li>
+                <li>Open up the Terminal application from the Launchpad on macOS, or a terminal emulator which you prefer.</li>
                 <li>In your terminal, type in <code class="inline-code">netstat -nr | grep default</code> and hit <code class="inline-code">Enter</code></li>
-                <li>You should be able to see your default gateway address at the top of the output.</li>
+                <li>You should be able to see your default gateway address at the top of the output. Make sure to make a note of this, because you will need this for the following steps</li>
             </ol>
             <h3>Accessing the Router Administration panel</h3>
             <p>Now that you have your default gateway address, we can use a web browser to navigate to the web interface that is used to configure your router.</p>
             <ol>
                 <li>Open up a web browser, and in the navigation bar, enter in your default gateway address.</li>
                 <li>If the page requests for a login, the default username and password can be found in it's manual, or online. You could also try using the username <code class="inline-code">admin</code> with the password being either <code class="inline-code">password</code> or <code class="inline-code">admin</code>, as these are usually the default login credentials on most household routers.</li>
-                <li>Once you are in, you will need to find the Port Forwarding menu. If you can't find it, you might be able to find it under Advanced Mode, a Games and Services category, or under Firewall settings. If you still can’t find it, try searching online for port forwarding guides for your specific router model.</li>
-                <li>Once you have found the Port Forwarding options, You're going to need to create a new Port Forwarding rule with the following settings: 
+            </ol>
+            <h3 id="setting_a_static_dhcp_lease_for_the_server_computer">Setting a Static DHCP lease for the Server Computer</h3>
+            <p>DHCP (Dynamic Host Configuration Protocol) is a very commonly used routing service that automatically provides each device on a network with their own IP address. If your router uses DHCP (Which it most likely does), you're going to want to set a static DHCP lease to make sure that the Server Computer's IP address doesn't change, or else you will have to reconfigure your Router and Minecraft Server with a new address each time it changes.</p>
+            <ol>
+                <li>In the router configuration panel, you will need to find the DHCP menu. If you can't find it, you might be able to find it under Advanced Mode, or under a Services or Routing category. If you still can’t find it, try searching online for static DHCP lease configuration guides for your specific router model.</li>
+                <li>Under the list of Static Leases, Add a Static Lease for your Server Computer with the following settings:
+                    <ul>
+                        <li>Set the Host Name to a short name for your device (e.g. <code class="inline-code">home-pc</code>, <code class="inline-code">server-pc</code>, or <code class="inline-code">kyles-laptop</code>)</li>
+                        <li>Set the MAC Address to the <a href="#server-mac-address">Physical Address of the Server Computer</a> which you found earlier.</li></li>
+                        <li>Set the IP address to the <a href="#server-ipv4-address">IPv4 address of the Server Computer</a> which you found earlier.</li>
+                    </ul>
+                </li>
+            </ol>
+            <h3>Port Forwarding</h3>    
+            <p>In the following steps, we will be configuring a Port Forwarding rule in the router configuration panel.</p>
+            <ol>
+                <li>In the router configuration panel, you will need to find the Port Forwarding menu. If you can't find it, you might be able to find it under Advanced Mode, a Games and Services category, or under Firewall settings. If you still can’t find it, try searching online for port forwarding guides for your specific router model.</li>
+                <li>Once you have found the Port Forwarding options, You're going to need to create a new Port Forwarding rule with the following settings:
                     <ul>
                         <li>Set the configuration name to <code class="inline-code">Minecraft</code></li>
                         <li>Set the WAN and LAN port to <code class="inline-code">25565</code></li>
                         <li>Make sure the protocol is set to both <code class="inline-code">UDP</code> and <code class="inline-code">TCP</code></li>
-                        <li>Set the destination IP address to the <a href="#server-ipv4-address">IPv4 address of the server computer</a>.</li>
+                        <li>Set the destination IP address to the <a href="#server-ipv4-address">IPv4 address of the Server Computer</a> which you found earlier.</li>
                     </ul>
+                </li>
             </ol>
         </section>
-        <section class="main-section" id="configuring_the_server_properties_file">
+        <!-- <section class="main-section" id="configuring_the_server_properties_file">
             <header>
                 <h2>Configuring the server properties file</h2>
             </header>
@@ -110,8 +181,9 @@
             </header>
             <p>text</p>
             <p>text</p>
-        </section>
+        </section> -->
     </main>
 </body>
-<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+<!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+
 </html>
