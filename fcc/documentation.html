@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-<!-- 
-User Story #5: The .main-section elements should contain at least 10 p elements total (not each).
-User Story #6: The .main-section elements should contain at least 5 code elements total (not each).
-User Story #7: The .main-section elements should contain at least 5 li items total (not each).
-User Story #8: I can see a nav element with a corresponding id="navbar".
-User Story #9: The navbar element should contain one header element which contains text that describes the topic of the technical documentation.
-User Story #10: Additionally, the navbar should contain link (a) elements with the class of nav-link. There should be one for every element with the class main-section.
-User Story #11: The header element in the navbar must come before any link (a) elements in the navbar.
-User Story #12: Each element with the class of nav-link should contain text that corresponds to the header text within each section (e.g. if you have a "Hello world" section/header, your navbar should have an element which contains the text "Hello world").
-User Story #13: When I click on a navbar element, the page should navigate to the corresponding section of the main-doc element (e.g. If I click on a nav-link element that contains the text "Hello world", the page navigates to a section element that has that id and contains the corresponding header.
-User Story #14: On regular sized devices (laptops, desktops), the element with id="navbar" should be shown on the left side of the screen and should always be visible to the user.
-User Story #15: My Technical Documentation page should use at least one media query.
--->
 <html lang="en">
     <head>
         <title>Technical Documentation | PKYLE</title>
@@ -31,7 +18,18 @@ User Story #15: My Technical Documentation page should use at least one media qu
         <link rel="stylesheet" href="documentation.css">
     </head>
 <body>
-    <h1>How to set up a Minecraft Server</h1>
+    <nav id="navbar">
+        <header>
+            <h1>How to set up a Minecraft Server</h1>
+        </header>
+        <ul>
+            <li><a href="#getting_started" class="nav-link">Getting Started</a></li>
+            <li><a href="#server_configuration" class="nav-link">Server Configuration</a></li>
+            <li><a href="#router_configuration" class="nav-link">Router Configuration</a></li>
+            <li><a href="#configuring_the_server_properties_file" class="nav-link">Configuring the server properties file</a></li>
+            <li><a href="#connecting_from_outside_your_home_network" class="nav-link">Connecting from outside your home network</a></li>
+        </ul>
+    </nav>
     <main id="main-doc">
         <section class="main-section" id="getting_started">
             <header>
@@ -59,10 +57,12 @@ User Story #15: My Technical Documentation page should use at least one media qu
                     <p>(If you don't agree to the EULA, stop here and check out <a href="https://www.minetest.net/">Minetest</a> instead!)</p></li>
                 <li><p>Save and close the <code class="inline-code">eula.txt</code> file.</p></li>
             </ol>
+            <h3 id="server-ipv4-address">Finding the local IPv4 Address of the Server Computer<h3>
+
         </section>
         <section class="main-section" id="router_configuration">
             <header>
-                <h2>Port Forwarding</h2>
+                <h2>Router Configuration</h2>
             </header>
             <p>In order to allow people from outside your local network to connect to your Minecraft Server, you will need to configure a port forwarding rule in your router's administration dashboard. This step can vary a lot depending on which router you are using.</p>
             <p>A Port Forwarding rule will allow people from outside your private local-area network to connect to a specific service on your computer (in this case, a Minecraft server) over the internet, without exposing the rest of your private network to the outside world.</p>
@@ -83,43 +83,35 @@ User Story #15: My Technical Documentation page should use at least one media qu
                 <li>You should be able to see your default gateway address at the top of the output.</li>
             </ol>
             <h3>Accessing the Router Administration panel</h3>
-            <p>Now that you have your default gateway address, we will use a web browser to navigate to the web interface that is hosted by your router.</p>
+            <p>Now that you have your default gateway address, we can use a web browser to navigate to the web interface that is used to configure your router.</p>
             <ol>
                 <li>Open up a web browser, and in the navigation bar, enter in your default gateway address.</li>
                 <li>If the page requests for a login, the default username and password can be found in it's manual, or online. You could also try using the username <code class="inline-code">admin</code> with the password being either <code class="inline-code">password</code> or <code class="inline-code">admin</code>, as these are usually the default login credentials on most household routers.</li>
+                <li>Once you are in, you will need to find the Port Forwarding menu. If you can't find it, you might be able to find it under Advanced Mode, a Games and Services category, or under Firewall settings. If you still can’t find it, try searching online for port forwarding guides for your specific router model.</li>
+                <li>Once you have found the Port Forwarding options, You're going to need to create a new Port Forwarding rule with the following settings: 
+                    <ul>
+                        <li>Set the configuration name to <code class="inline-code">Minecraft</code></li>
+                        <li>Set the WAN and LAN port to <code class="inline-code">25565</code></li>
+                        <li>Make sure the protocol is set to both <code class="inline-code">UDP</code> and <code class="inline-code">TCP</code></li>
+                        <li>Set the destination IP address to the <a href="#server-ipv4-address">IPv4 address of the server computer</a>.</li>
+                    </ul>
             </ol>
-            <h3></h3>
         </section>
-        <section class="main-section" id="">
+        <section class="main-section" id="configuring_the_server_properties_file">
             <header>
-                <h2>Topic</h2>
+                <h2>Configuring the server properties file</h2>
             </header>
             <p>text</p>
             <p>text</p>
         </section>
-        <section class="main-section" id="">
+        <section class="main-section" id="connecting_from_outside_your_home_network">
             <header>
-                <h2>Topic</h2>
+                <h2>Connecting from outside your home network</h2>
             </header>
             <p>text</p>
             <p>text</p>
-        </section>
-        <section>
-            <p> - If you are on Windows, go onto cmd and type in ‘ipconfig’, look for your IPv4 address. (It should look something like 192.168.0.16) and find your default gateway address (should look something like 192.168.0.1)</p>
-            <p> - If you are on Mac, go to terminal and type in “ifconfig getifaddr en0” to find your ipv4 address, and then type in “netstat -nr | grep default” to find your default gateway.</p>
-            <p> - Paste the default gateway address into your web browser url bar, and go.</p>
-            <p> - If you need to login, the username is almost always admin or administrator, and the password is almost always just ‘password’, or nothing at all.</p>
-            <p> - Once you are in, look for port forwarding options. This normally comes in under games and services, or firewall settings, if you can’t find it, look for advanced options, and then keep looking.</p>
-            <p> - Once you have             <p> - If you need to login, the usernam            found it, create a new port forwarding rule and call it Minecraft. Change the protocol to both UDP and TCP, and set the WAN and LAN port to 25565. Set the destination IP to your IPv4 address which you found earlier in cmd/terminal</p>
-            <p> - Save the port forwarding configuration and then exit the web browser.</p>
-            <p> - Go into the server files and open the server.properties file in a text editor</p>
-            <p> - Edit the line “server-ip” and make sure it equals your IPv4 address.</p>
-            <p> - Launch the server</p>
-            <p> - You can connect to it from the same household via the IPv4 address that you acquired above, but to allow other people to connect to it externally, follow the following steps:</p>
-            <p> - Go to www.google.com and search for “IP”</p>
-            <p> - You should be able to find your public IP address</p>
-            <p> - Send that address to whoever you want to connect to your server, with :25565 at the end of it (It should look something like 60.200.6.202:25565)</p>
         </section>
     </main>
 </body>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </html>
