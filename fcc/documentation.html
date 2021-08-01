@@ -28,8 +28,10 @@
             <li><a href="#getting_started" class="nav-link">Getting Started</a></li>
             <li><a href="#server_configuration" class="nav-link">Server Configuration</a></li>
             <li><a href="#router_configuration" class="nav-link">Router Configuration</a></li>
-            <li><a href="#configuring_the_server_properties_file" class="nav-link">Configuring the server properties file</a></li>
-            <li><a href="#connecting_from_outside_your_home_network" class="nav-link">Connecting from outside your home network</a></li>
+            <li><a href="#configuring_the_server_properties" class="nav-link">Configuring the Server Properties</a></li>
+            <li><a href="#launching_the_server" class="nav-link">Launching the Server</a></li>
+            
+            <li><a href="#connecting_to_the_server" class="nav-link">Connecting to the Server</a></li>
         </ul>
     </nav>
     <main id="main-doc">
@@ -176,17 +178,35 @@
             </ol>
             <p>Remember to save the changes that you have made to your router before you proceed.</p>
         </section>
-        <section class="main-section" id="configuring_the_server_properties_file">
+        <section class="main-section" id="configuring_the_server_properties">
             <header>
                 <h2>Configuring the Server Properties</h2>
             </header>
             <p>In this step, we will be configuring the rest of the server files so that the Minecraft server can be fully operational. For this, you will need to return to the server computer that you downloaded the Minecraft server files onto. Please make sure that you can access the server directory that you made earlier in the <a href="#getting_started">Getting Started</a> section before you proceed.</p>
-            <p>In the server directory, you should be able to see a file called <code class="inline-code">server.properties</code>. Open this file with a text editor (e.g. You can use Notepad on Windows or TextEdit on macOS for example) and edit the following lines:</p>
-            
+            <p>In the server directory, you should be able to see a file called <code class="inline-code">server.properties</code>. Open this file with a text editor (e.g. You can use Notepad on Windows or TextEdit on macOS, or vim) and edit it to suit your needs.</p>
+            <ul>
+                <li>Edit the line starting with <code class="inline-code">server-ip=</code> and make sure it equals your server computer's IPv4 address</li>
+                <li>Players who are given the Operator permission by default have the ability to stop the server from within the game. If you don't want this to happen, you can change the line with <code class="inline-code">op-permission-level=4</code> to <code class="inline-code">op-permission-level=3</code></li>
+                <li>If you don't want random people to end up on your server, make sure to change <code class="inline-code">white-list=false</code> to <code class="inline-code">white-list=true</code>. This allows you to configure a list of approved players by adding and removing usernames. Users who are not in the list will not be able to connect to the server. You will learn how to configure this list later on in this guide.</li>
+                <li>If you don't want players whacking each other, change <code class="inline-code">pvp=true</code> to <code class="inline-code">pvp=false</code></li>
+                <li>If you would like to play Creative mode instead of Survival, change <code class="inline-code">gamemode=survival</code> to <code class="inline-code">gamemode=creative</code></li>
+                <li>Alternatively, if you wish to play Hardcore, keep <code class="inline-code">gamemode=survival</code> and set <code class="inline-code">hardcore=true</code></li>
+                <li>If you don't like hostile monsters, or you'd like to crank up the difficulty, change <code class="inline-code">difficulty=easy</code> to either <code class="inline-code">peaceful</code>, <code class="inline-code">easy</code>, <code class="inline-code">normal</code>, or <code class="inline-code">hard</code></li>
+                <li>If you trust the players on your server not to use exploits, glitches, and hacked clients to give them unfair mobility advantages, I recommend changing <code class="inline-code">allow-flight=false</code> to <code class="inline-code">allow-flight=true</code> because I have had many problems with false positives where the server will automatically kick people for flying when they were not.</li>
+                <li>You can set a custom MOTD (Message Of The Day) which will display a short description about your server. To change this, edit the line starting with <code class="inline-code">motd=A Minecraft Server</code>. If you would like to make it look very fancy, I recommend using the <a href="https://minecraft.tools/en/motd.php">MOTD Generator</a> from <a href="https://minecraft.tools">minecraft.tools</a>, which will allow you to easily customise the MOTD so that you can generate the text to copy and paste into the <code class="inline-code">motd=</code> section of the properties file.</li>
+            </ul>
+            <p>To find out more information about the server.properties file, please refer to the <a href="https://minecraft.fandom.com/wiki/Server.properties#Minecraft_server_properties">Minecraft Wiki Page</a>.</p>
         </section>
-        <section class="main-section" id="connecting_from_outside_your_home_network">
+        <section class="main-section" id="launching_the_server">
             <header>
-                <h2>Connecting from outside your home network</h2>
+                <h2>Launching the Server</h2>
+            </header>
+            <p>text</p>
+            <p>text</p>
+        </section>
+        <section class="main-section" id="connecting_to_the_server">
+            <header>
+                <h2>Connecting to the Server</h2>
             </header>
             <p>text</p>
             <p>text</p>

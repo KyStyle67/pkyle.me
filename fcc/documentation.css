@@ -17,13 +17,13 @@
   }
   
 /* dark theme support */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root {
         --background-color: #000;
         --text-color: #BBB;
         --header-color: #222;
     }
-} */
+}
 
 body {
     background-color: var(--background-color);
