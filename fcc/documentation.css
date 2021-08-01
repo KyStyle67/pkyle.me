@@ -11,25 +11,26 @@
 }
 
 :root {
-    --background-color: rgb(255, 255, 255);
-    --text-color: rgb(0, 0, 0);
+    --background-color: #EEE;
+    --text-color: #000;
+    --header-color: #BBB;
   }
   
 /* dark theme support */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #000;
         --text-color: #BBB;
+        --header-color: #222;
     }
-}
-
-/* :root {
-
 } */
-
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: 'roboto';
+}
+
+header {
+    background-color: var(--header-color);
 }

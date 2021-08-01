@@ -73,6 +73,12 @@
                     <p>Save and close the <code class="inline-code">eula.txt</code> file.</p>
                 </li>
             </ol>
+        </section>
+        <section class="main-section" id="gathering_device_information">
+            <header>
+                <h2>Gathering Device Information</h2>
+            </header>
+            <p>You're going to need to gather a series of unique details about your device and network configuration. The following steps will guide you through the process of finding the IPv4 address and MAC Address of your Server Computer, and the Default Gateway address of your router. Be sure to write these addresses down, as you will need each one for various stages of the configuration process.</p>
             <h3 id="server-ipv4-address">Finding the local IPv4 Address of the Server Computer</h3>
             <p>Each device in your home network has it's own local IP (Internet Protocol) address. IP addresses are used to make sure that every network transmission is sent towards its intended device. We're going to need to find the IP address of the device that is hosting the Minecraft server in order to configure our home network so that this device is set up to send and recieve the Minecraft server transmissions.</p>
             <h4>Windows Instructions</h4>
@@ -113,16 +119,8 @@
                 </ol>
             </li>
             </ol>
-        </section>
-        <section class="main-section" id="router_configuration">
-            <header>
-                <h2>Router Configuration</h2>
-            </header>
-            <p>In order to allow people from outside your local network to connect to your Minecraft Server, you will need to configure a port forwarding rule in your router's administration dashboard. This step can vary a lot depending on which router you are using.</p>
-            <p>A Port Forwarding rule will allow people from outside your private local-area network to connect to a specific service on your computer (in this case, a Minecraft server) over the internet, without exposing the rest of your private network to the outside world.</p>
-            <p>Most household routers will have a web interface that you can connect to via the router's local IP address, which is also known as the default gateway address. To configure a port forwarding rule, first we need to log in to the router web interface.</p>
-            <h3>Finding the Default Gateway address</h3>
-            <p>In order to log into your router's administration panel, you will need to find it's address in your local network. This address is most commonly referred to as the Default Gateway address.</p>
+            <h3 id="finding_the_default_gateway_address">Finding the Default Gateway address</h3>
+            <p>You're going to need to know the address of your router on your your local network. This address is most commonly referred to as the Default Gateway address. You will need to use this address later to connect to your router's management interface, which will be explained in the upcoming steps.</p>
             <h4>Windows Instructions</h4>
             <ol>
                 <li>Open the command prompt by holding down the <code class="inline-code">Windows</code> key and press <code class="inline-code">R</code> to bring up the Run dialogue</li>
@@ -136,10 +134,18 @@
                 <li>In your terminal, type in <code class="inline-code">netstat -nr | grep default</code> and hit <code class="inline-code">Enter</code></li>
                 <li>You should be able to see your default gateway address at the top of the output. Make sure to make a note of this, because you will need this for the following steps</li>
             </ol>
+        </section>
+        <section class="main-section" id="router_configuration">
+            <header>
+                <h2>Router Configuration</h2>
+            </header>
+            <p>Please note that the following information is presented as a general guide, as these following steps can vary a lot depending on which router you are using. If you have any trouble at any point following along with any of the router configurations, please make sure that you know the brand and model of your router so that you can easily search for more information online if you need.</p>
+            <p>Most household routers will have a web interface that allows you to manage and configure services that you can connect to via the router's Default Gateway Address. To configure a port forwarding rule, first we need to log in to the router web interface.</p>
+            
             <h3>Accessing the Router Administration panel</h3>
-            <p>Now that you have your default gateway address, we can use a web browser to navigate to the web interface that is used to configure your router.</p>
+            <p>With the <a href="#finding_the_default_gateway_address">Default Gateway address that you found earlier</a>, we can use a web browser to navigate to the web interface that is used to configure your router.</p>
             <ol>
-                <li>Open up a web browser, and in the navigation bar, enter in your default gateway address.</li>
+                <li>Open up a web browser, and in the navigation bar, enter the Default Gateway address.</li>
                 <li>If the page requests for a login, the default username and password can be found in it's manual, or online. You could also try using the username <code class="inline-code">admin</code> with the password being either <code class="inline-code">password</code> or <code class="inline-code">admin</code>, as these are usually the default login credentials on most household routers.</li>
             </ol>
             <h3 id="setting_a_static_dhcp_lease_for_the_server_computer">Setting a Static DHCP lease for the Server Computer</h3>
@@ -154,8 +160,9 @@
                     </ul>
                 </li>
             </ol>
-            <h3>Port Forwarding</h3>    
-            <p>In the following steps, we will be configuring a Port Forwarding rule in the router configuration panel.</p>
+            <h3>Port Forwarding</h3>
+            <p>In order to allow people from outside your local network to connect to your Minecraft Server, you will need to configure a port forwarding rule in your router's administration dashboard.</p>
+            <p>In the following steps, we will be configuring a Port Forwarding rule which will allow people from outside your private local-area network to connect to a specific service on your computer (in this case, a Minecraft server) over the internet, without exposing the rest of your private network to the outside world.</p>
             <ol>
                 <li>In the router configuration panel, you will need to find the Port Forwarding menu. If you can't find it, you might be able to find it under Advanced Mode, a Games and Services category, or under Firewall settings. If you still can’t find it, try searching online for port forwarding guides for your specific router model.</li>
                 <li>Once you have found the Port Forwarding options, You're going to need to create a new Port Forwarding rule with the following settings:
@@ -167,13 +174,15 @@
                     </ul>
                 </li>
             </ol>
+            <p>Remember to save the changes that you have made to your router before you proceed.</p>
         </section>
-        <!-- <section class="main-section" id="configuring_the_server_properties_file">
+        <section class="main-section" id="configuring_the_server_properties_file">
             <header>
-                <h2>Configuring the server properties file</h2>
+                <h2>Configuring the Server Properties</h2>
             </header>
-            <p>text</p>
-            <p>text</p>
+            <p>In this step, we will be configuring the rest of the server files so that the Minecraft server can be fully operational. For this, you will need to return to the server computer that you downloaded the Minecraft server files onto. Please make sure that you can access the server directory that you made earlier in the <a href="#getting_started">Getting Started</a> section before you proceed.</p>
+            <p>In the server directory, you should be able to see a file called <code class="inline-code">server.properties</code>. Open this file with a text editor (e.g. You can use Notepad on Windows or TextEdit on macOS for example) and edit the following lines:</p>
+            
         </section>
         <section class="main-section" id="connecting_from_outside_your_home_network">
             <header>
@@ -181,7 +190,7 @@
             </header>
             <p>text</p>
             <p>text</p>
-        </section> -->
+        </section>
     </main>
 </body>
 <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
